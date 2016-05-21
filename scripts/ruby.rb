@@ -9,7 +9,7 @@ end.select do |name|
   name and name.size > 2
 end
 
-lines += `bitclust list --class`.each_line.select{|x| x.size > 2}
+lines += `bitclust list --class`.each_line.select{|x| x.size > 2}.map { |name| name.strip }
 
 lines.sort.uniq.each do |name|
   puts name
